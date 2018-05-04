@@ -1,0 +1,14 @@
+https://blog.dbi-services.com/elasticsearch-kibana-logstash-and-filebeat-centralize-all-your-database-logs-and-even-more/
+https://bdrouvot.wordpress.com/2016/03/26/push-the-oracle-alert-log-and-listener-log-into-elasticsearch-and-analyzevisualize-their-content-with-kibana/
+
+D:\ELK\elasticsearch-6.2.4>bin\elasticsearch.bat
+
+D:\ELK\kibana-6.2.4-windows-x86_64>bin\kibana.bat
+
+-- various option for logstash
+D:\ELK\logstash-6.2.4>bin\logstash.bat -f D:\ELK\logstash-6.2.4\config\ORA_alert_log.conf --log.level=debug
+D:\ELK\logstash-6.2.4>bin\logstash.bat -f D:\ELK\logstash-6.2.4\config\ORA_alert_log.conf --config.reload.automatic
+D:\ELK\logstash-6.2.4>bin\logstash.bat -f D:\ELK\logstash-6.2.4\config\ORA_alert_log.conf --config.reload.automatic --log.level=debug
+
+Filebeat is able to send events to the configured output. Run Filebeat in debug mode to determine whether it’s publishing events successfully:
+./filebeat -c config.yml -e -d "*"
