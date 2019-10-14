@@ -12,3 +12,54 @@ D:\ELK\logstash-6.2.4>bin\logstash.bat -f D:\ELK\logstash-6.2.4\config\ORA_alert
 
 Filebeat is able to send events to the configured output. Run Filebeat in debug mode to determine whether it’s publishing events successfully:
 ./filebeat -c config.yml -e -d "*"
+
+
+-- ------------------------------------------
+For Linux ; steps
+its of old version
+https://linuxtechlab.com/install-elk-stack-manage-logs-elasticsearch-logstash-kibana/
+
+-- ------------------------------------------
+-- elasticsearch
+### NOT starting on installation, please execute the following statements to configure elasticsearch service to start automatically using systemd
+ sudo systemctl daemon-reload
+ sudo systemctl enable elasticsearch.service
+ sudo systemctl disable elasticsearch.service
+### You can start elasticsearch service by executing
+ sudo systemctl start elasticsearch.service
+
+ sudo systemctl stop elasticsearch.service
+ sudo systemctl start elasticsearch.service
+sudo service elasticsearch status
+
+
+sudo service elasticsearch start
+sudo service elasticsearch stop
+sudo -E service elasticsearch restart
+
+http://localhost:9200
+
+-- ------------------------------------------
+-- Kibana
+Kibana can be started and stopped as follows:
+
+sudo systemctl stop kibana.service
+sudo systemctl start kibana.service
+sudo systemctl status kibana.service
+
+sudo -E service kibana restart
+
+http://10.206.2.11x:5601
+
+-- ------------------------------------------
+-- Logstash
+
+sudo systemctl start logstash.service
+sudo systemctl stop logstash.service
+
+sudo -E service logstash restart
+
+-- ------------------------------------------
+-- metricbeat
+sudo service metricbeat start
+sudo service metricbeat restart
